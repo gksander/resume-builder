@@ -1,20 +1,20 @@
 <template>
   <!-- About you -->
   <div>
-    <div class="headline mb-3">Intro</div>
+    <!-- <div class="headline mb-3">Intro</div> -->
     <!-- Name -->
     <v-text-field
-      outlined hide-details class="mb-4"
+      filled hide-details class="mb-4"
       label="Name" v-model="resume_name"
     ></v-text-field>
     <!-- Title -->
     <v-text-field
-      outlined hide-details class="mb-4"
+      filled hide-details class="mb-4"
       label="Title" v-model="resume_title"
     ></v-text-field>
     <!-- Objective -->
     <v-textarea
-      outlined hide-details
+      filled hide-details
       label="Objective" v-model="resume_objective"
       :rows="1" auto-grow
     ></v-textarea>

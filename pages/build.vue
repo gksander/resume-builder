@@ -40,18 +40,75 @@
       >
         <!-- Body... -->
         <div class="flex-grow-1 pa-3 overflow-auto">
+
           <v-tabs-items v-model="activeTab">
             <!-- Data -->
             <v-tab-item value="tab-data">
-              <!-- About you -->
-              <builder-intro class="mb-4"></builder-intro>
-              <!-- Contact -->
-              <builder-contact class="mb-4"></builder-contact>
+              <div class="headline mb-3">Resume Data</div>
+              <v-expansion-panels>
+                <!-- Intro -->
+                <v-expansion-panel>
+                  <v-expansion-panel-header>Intro</v-expansion-panel-header>
+                  <v-expansion-panel-content>
+                    <builder-intro></builder-intro>
+                  </v-expansion-panel-content>
+                </v-expansion-panel>
+                <!-- Contact -->
+                <v-expansion-panel>
+                  <v-expansion-panel-header>Contact</v-expansion-panel-header>
+                  <v-expansion-panel-content>
+                    <builder-contact></builder-contact>
+                  </v-expansion-panel-content>
+                </v-expansion-panel>
+                <!-- Tools -->
+                <v-expansion-panel>
+                  <v-expansion-panel-header>Tools</v-expansion-panel-header>
+                  <v-expansion-panel-content>
+                    <builder-tools></builder-tools>
+                  </v-expansion-panel-content>
+                </v-expansion-panel>
+              </v-expansion-panels>
             </v-tab-item>
             <!-- Style -->
             <v-tab-item value="tab-style">
-              <!-- Colors -->
-              <builder-colors class="mb-4"></builder-colors>
+              <div class="headline mb-3">Theming</div>
+              <v-expansion-panels>
+                <!-- Primary Color -->
+                <v-expansion-panel>
+                  <v-expansion-panel-header>Primary Color</v-expansion-panel-header>
+                  <v-expansion-panel-content>
+                    <v-color-picker
+                      mode="rgba"
+                      hide-mode-switch
+                      v-model="resume_primary_color"
+                    ></v-color-picker>
+                  </v-expansion-panel-content>
+                </v-expansion-panel>
+                <!-- Header Text Color -->
+                <v-expansion-panel>
+                  <v-expansion-panel-header>Header Text Color</v-expansion-panel-header>
+                  <v-expansion-panel-content>
+                    <v-color-picker
+                      mode="rgba"
+                      hide-mode-switch
+                      v-model="resume_header_text_color"
+                    ></v-color-picker>
+                  </v-expansion-panel-content>
+                </v-expansion-panel>
+                <!-- Text Color -->
+                <v-expansion-panel>
+                  <v-expansion-panel-header>Text Color</v-expansion-panel-header>
+                  <v-expansion-panel-content>
+                    <v-color-picker
+                      mode="rgba"
+                      hide-mode-switch
+                      v-model="resume_text_color"
+                    ></v-color-picker>
+                  </v-expansion-panel-content>
+                </v-expansion-panel>
+
+                
+              </v-expansion-panels> <!-- End styling panels -->
             </v-tab-item>
           </v-tabs-items>
         </div>
@@ -103,7 +160,7 @@ import getVuexBinder from '~/assets/js/vuexComputedBinder'
 import ResumeBasic from '~/components/resumes/ResumeBasic.vue';
 import BuilderIntro from '~/components/builder/BuilderIntro.vue';
 import BuilderContact from '~/components/builder/BuilderContact.vue';
-import BuilderColors from '~/components/builder/BuilderColors.vue';
+import BuilderTools from '~/components/builder/BuilderTools.vue';
 import { setInterval, setTimeout, clearTimeout, clearInterval } from 'timers';
 
 // Export component
@@ -117,7 +174,7 @@ export default {
     // Builder components
     BuilderIntro,
     BuilderContact,
-    BuilderColors,
+    BuilderTools,
 
     // Resume types
     ResumeBasic,
@@ -146,6 +203,9 @@ export default {
     sidenav: getVuexBinder("sidenav"),
     // Resume values
     resume_name: getVuexBinder("resume_name"),
+    resume_primary_color: getVuexBinder("resume_primary_color"),
+    resume_header_text_color: getVuexBinder("resume_header_text_color"),
+    resume_text_color: getVuexBinder("resume_text_color"),
 
   },
 

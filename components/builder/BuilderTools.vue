@@ -1,11 +1,12 @@
 <template>
   <!-- Contact -->
   <div>
+    <div class="headline mb-3">Tools</div>
     <!-- Loop through contact lines -->
     <v-text-field
-      v-for="(line, i) in resume_contact" :key="`contact-${i}`"
+      v-for="(line, i) in resume_tools" :key="`tool-${i}`"
       filled hide-details
-      :label="`Line ${i + 1}`"
+      :label="`Tool ${i + 1}`"
       :value="line.body"
       @input="updateLine(i, $event)"
       append-icon="fas fa-trash"
@@ -65,7 +66,7 @@ export default {
    * Computed
    */
   computed: {
-    resume_contact: getVuexBinder("resume_contact"),
+    resume_tools: getVuexBinder("resume_tools"),
   },
 
   /**
@@ -75,21 +76,21 @@ export default {
     // Update a line
     updateLine(i, val) {
       const line = {
-        ...this.resume_contact[i],
+        ...this.resume_tools[i],
         body: val
       };
 
-      this.$store.commit('SET_CONTACT_LINE', { i, line });
+      this.$store.commit('SET_TOOL_LINE', { i, line });
     },
 
     // Add a line
     addLine() {
-      this.$store.commit('ADD_CONTACT_LINE');
+      this.$store.commit('ADD_TOOL_LINE');
     },
 
     // Delete a line
     deleteLine(i) {
-      this.$store.commit('DELETE_CONTACT_LINE', i);
+      this.$store.commit('DELETE_TOOL_LINE', i);
     },
 
     // Start icon selection process
@@ -102,11 +103,11 @@ export default {
       // Create updated line
       const i = this.activeContactLineIndex;
       const line = {
-        ...this.resume_contact[i],
+        ...this.resume_tools[i],
         icon
       };
       // Commit it to Vuex
-      this.$store.commit('SET_CONTACT_LINE', { i, line });
+      this.$store.commit('SET_TOOL_LINE', { i, line });
 
       // Close dialog
       this.iconSelectorVisible = false;

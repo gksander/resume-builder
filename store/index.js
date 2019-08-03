@@ -19,7 +19,9 @@ export const state = () => ({
   resume_experience: [
     { title: "...", dateRange: "...", description: "..." },
   ],
-  resume_tools: [],
+  resume_tools: [
+    { icon: 'fas fa-laptop-code', body: "HTML5" },
+  ],
 
   // Resume styling
   resume_primary_color: "#ff0000",
@@ -51,6 +53,21 @@ export const mutations = {
   // Delete a contact line
   DELETE_CONTACT_LINE (state, i) {
     state.resume_contact.splice(i, 1);
+  },
+
+  // Update a contact line
+  SET_TOOL_LINE (state, { i, line }) {
+    state.resume_tools.splice(i, 1, line);
+  },
+
+  // Add a contact line
+  ADD_TOOL_LINE (state) {
+    state.resume_tools.push({ icon: 'fas fa-laptop-code', body: "HTML5" });
+  },
+
+  // Delete a contact line
+  DELETE_TOOL_LINE (state, i) {
+    state.resume_tools.splice(i, 1);
   },
   
 }

@@ -71,6 +71,25 @@
             </div>
           </div>
 
+          <!-- Tools -->
+          <div class="mb-3">
+            <div
+              class="section-header"
+            >Tools</div>
+            <div
+              v-for="(line, i) in resume_tools" :key="`contact-line-${i}`"
+              class="contact-line mb-1"
+            >
+              <div class="contact-line-icon">
+                <v-icon :color="resume_text_color">{{ line.icon }}</v-icon>
+              </div>
+              <div
+                v-html="line.body"
+                class="contact-line-body"
+              ></div>
+            </div>
+          </div>
+
           <!-- Education -->
           <div class="mb-3">
             <div
@@ -97,15 +116,12 @@ export default {
       "resume_title",
       "resume_objective",
       "resume_contact",
+      "resume_tools",
       "resume_primary_color",
       "resume_text_color",
       "resume_header_text_color",
     ]),
   },
-
-  mounted() {
-    console.log(this.resume_primary_color)
-  }
 
 }
 </script>
