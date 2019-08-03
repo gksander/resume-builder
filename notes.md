@@ -19,3 +19,4 @@
 ## TODO:
 
 - Add icons
+- Ordering of items

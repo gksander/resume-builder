@@ -12,7 +12,14 @@ export const state = () => ({
   resume_objective: "",
   resume_contact: [
     { icon: 'fas fa-phone', body: "(555) 555-5555" },
-  ]
+  ],
+  resume_education: [
+    { title: "B.S. Mathematics", dateRange: "Aug. 2011 - May 2014", description: "..." }
+  ],
+  resume_experience: [
+    { title: "...", dateRange: "...", description: "..." },
+  ],
+  resume_tools: []
 })
 
 
