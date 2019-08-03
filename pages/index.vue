@@ -1,7 +1,10 @@
 <template>
   <div>
     <!-- Content body for resume preview -->
-    <v-container class="pa-6">
+    <v-container
+      class="pa-6"
+      style="max-width: 700px;"
+    >
       <v-responsive
         :aspect-ratio="8.5/11"
         class="blue"

@@ -7,9 +7,9 @@ export const state = () => ({
   sidenav: null,
 
   // Resume values
-  resume_name: "",
-  resume_title: "",
-  resume_objective: "",
+  resume_name: "Jane Doe",
+  resume_title: "Web Developer",
+  resume_objective: "This is an __objective__ statement with Markdown.",
   resume_contact: [
     { icon: 'fas fa-phone', body: "(555) 555-5555" },
   ],
@@ -17,16 +17,16 @@ export const state = () => ({
     { title: "Degree", date: "Date", description: "..." }
   ],
   resume_experience: [
-    { title: "...", date: "...", description: "..." },
+    { title: "Super Important Job", date: "June 1993 - Current", description: "Job description here.\n* Achievement 1\n* Achievement 2" },
   ],
   resume_tools: [
-    { icon: 'fas fa-laptop-code', body: "HTML5" },
+    { icon: 'fab fa-html5', body: "HTML5" },
   ],
 
   // Resume styling
-  resume_primary_color: "#ff0000",
-  resume_text_color: "#000000",
-  resume_header_text_color: "#ffffff",
+  resume_primary_color: "rgb(7,107,45)",
+  resume_text_color: "rgb(0,0,0)",
+  resume_header_text_color: "rgb(255,255,255)",
 })
 
 
