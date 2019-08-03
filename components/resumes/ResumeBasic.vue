@@ -1,13 +1,66 @@
 <template>
   <div class="resume-wrapper">
-    <div class="header">
-      <div>{{ resume_name }}</div>
-      <div>{{ resume_title }}</div>
+    <!-- Header -->
+    <div
+      class="header"
+      :style="{
+        background: 'red',
+        color: 'white'
+      }"
+    >
+      <div
+        :style="{
+          fontSize: '32pt',
+          fontWeight: 'bold'
+        }"
+      >{{ resume_name }}</div>
+      <div
+        :style="{
+          fontSize: '16pt',
+        }"
+      >{{ resume_title }}</div>
     </div>
-    <div class="pa-3">
-      <div class="headline">Objective</div>
-      <div v-html="resume_objective.replace(/\n/g, '<br />')"></div>
-    </div>
+
+    <!-- Body -->
+    <v-container class="pa-6" grid-list-lg>
+      <v-layout row>
+        <!-- Left column -->
+        <v-flex xs8>
+          <!-- Objective -->
+          <div
+            class="section-header"
+          >Objective</div>
+          <div
+            v-html="resume_objective.replace(/\n/g, '<br />')"
+            class="mb-3"
+          ></div>
+
+          <!-- Experience -->
+          <div
+            class="section-header"
+          >Experience</div>
+
+
+        </v-flex> <!-- End left column -->
+        <!-- Right column -->
+        <v-flex xs4>
+          <!-- Contact -->
+          <div
+            class="section-header"
+          >Contact</div>
+          <div
+            v-for="(line, i) in resume_contact" :key="`contact-line-${i}`"
+            class="contact-line mb-1"
+          >
+            <div class="contact-line-icon">
+              <v-icon color="black">{{ line.icon }}</v-icon>
+            </div>
+            <div v-html="line.body"></div>
+          </div>
+
+        </v-flex>
+      </v-layout>
+    </v-container>
   </div>
 </template>
 
@@ -21,7 +74,8 @@ export default {
     ...mapState([
       "resume_name",
       "resume_title",
-      "resume_objective"
+      "resume_objective",
+      "resume_contact",
     ]),
   }
 
@@ -30,7 +84,28 @@ export default {
 
 <style lang="scss" scoped>
 .header {
-  background: blue;
-  font-size: 16pt;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  height: 130pt;
+  text-align: center;
+  line-height: 2.5em;
+}
+
+.section-header {
+  font-size: 18pt;
+  font-weight: bold;
+}
+
+.contact-line {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  
+  .contact-line-icon {
+    width: 24pt;
+    // text-align: center;
+  }
 }
 </style>
