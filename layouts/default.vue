@@ -9,11 +9,24 @@
     <v-app-bar
       app clipped-left
     >
-      <v-btn icon to="/">
+      <v-btn
+        v-if="isMenuButtonVisible"
+        icon class="mx-1"
+        @click="sidenav = !sidenav"
+      >
+        <v-icon>fas fa-bars</v-icon>
+      </v-btn>
+      <v-btn
+        to="/" exact
+        icon class="mx-1"
+      >
         <v-icon>fas fa-home</v-icon>
       </v-btn>
       <v-spacer></v-spacer>
-      <v-btn icon to="/build">
+      <v-btn
+        to="/build"
+        icon class="mx-1"
+      >
         <v-icon>fas fa-tools</v-icon>
       </v-btn>
     </v-app-bar>
@@ -21,9 +34,29 @@
   </v-app>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
-export default Vue.extend({
-  name: "DefaultLayout"
-})
+<script>
+export default {
+  name: "DefaultLayout",
+
+  /**
+   * Computed properties
+   */
+  computed: {
+    // Should we show menu button
+    isMenuButtonVisible() {
+      return /build/i.test(this.$route.path);
+    },
+
+    // "Sidenav" model for controlling sidenav
+    sidenav: {
+      get() {
+        return this.$store.state.sidenav;
+      },
+      set (val) {
+        this.$store.commit('SET_VALUE', {key: 'sidenav', value: val});
+      }
+    },
+  }
+
+}
 </script>

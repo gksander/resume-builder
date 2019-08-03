@@ -32,10 +32,18 @@
     <v-navigation-drawer
       app clipped
       mobile-break-point="800"
-      width="300"
-      v-model="sidenavVisible"
+      width="350"
+      v-model="sidenav"
     >
-      DRAWER
+      <v-container>
+        <!-- About you -->
+        <builder-intro class="mb-4"></builder-intro>
+        <!-- Contact -->
+        <builder-contact class="mb-4"></builder-contact>
+
+
+
+      </v-container>
     </v-navigation-drawer>
 
 
@@ -59,21 +67,28 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
+<script>
+import getVuexBinder from '~/assets/js/vuexComputedBinder'
 
 // Import components
-import ResumeBasic from '~/components/ResumeBasic.vue';
+import ResumeBasic from '~/components/resumes/ResumeBasic.vue';
+import BuilderIntro from '~/components/builder/BuilderIntro.vue';
+import BuilderContact from '~/components/builder/BuilderContact.vue';
 import { setInterval, setTimeout, clearTimeout, clearInterval } from 'timers';
 
-
-export default Vue.extend({
+// Export component
+export default {
   name: "BuildPage",
 
   /**
    * Components
    */
   components: {
+    // Builder components
+    BuilderIntro,
+    BuilderContact,
+
+    // Resume types
     ResumeBasic,
   },
 
@@ -81,11 +96,22 @@ export default Vue.extend({
    * Data
    */
   data: () => ({
-    sidenavVisible: <boolean|null>true,
+    sidenavVisible: true,
     scaleFactor: 1,
-    mountInterval: <any>null,
-    mountIntervalRunCount: <number>0,
+    mountInterval: null,
+    mountIntervalRunCount: 0,
   }),
+
+  /**
+   * Computed
+   */
+  computed: {
+    // "Sidenav" model for controlling sidenav
+    sidenav: getVuexBinder("sidenav"),
+    // Resume values
+    resume_name: getVuexBinder("resume_name"),
+
+  },
 
   /**
    * Methods
@@ -97,8 +123,8 @@ export default Vue.extend({
     computeScaleFactor() {
       try {
         // Get widths of the two containers
-        let virtualW = (<any>this.$refs.resumeContainer).$el.clientWidth,
-          actualW = (<HTMLElement>this.$refs.fixedSize).clientWidth;
+        let virtualW = this.$refs.resumeContainer.$el.clientWidth,
+          actualW = this.$refs.fixedSize.clientWidth;
         // Scale factor is the ratio between them.
         this.scaleFactor = virtualW/actualW;
       } catch (_) {
@@ -140,5 +166,5 @@ export default Vue.extend({
     window.removeEventListener('resize', this.computeScaleFactor);
   },
 
-})
+}
 </script>
