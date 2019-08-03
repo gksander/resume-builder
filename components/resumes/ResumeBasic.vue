@@ -64,7 +64,10 @@
               <div class="contact-line-icon">
                 <v-icon :color="resume_text_color">{{ line.icon }}</v-icon>
               </div>
-              <div v-html="line.body"></div>
+              <div
+                v-html="line.body"
+                class="contact-line-body"
+              ></div>
             </div>
           </div>
 
@@ -129,8 +132,12 @@ export default {
   align-content: center;
   
   .contact-line-icon {
-    width: 24pt;
-    // text-align: center;
+    width: 20pt;
+    text-align: center;
+  }
+  
+  .contact-line-body {
+    padding-left: 6pt;
   }
 }
 </style>
