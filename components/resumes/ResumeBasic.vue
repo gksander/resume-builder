@@ -1,11 +1,16 @@
 <template>
-  <div class="resume-wrapper">
+  <div
+    class="resume-wrapper"
+    :style="{
+      color: resume_text_color
+    }"
+  >
     <!-- Header -->
     <div
       class="header"
       :style="{
-        background: 'red',
-        color: 'white'
+        backgroundColor: resume_primary_color,
+        color: resume_header_text_color
       }"
     >
       <div
@@ -57,7 +62,7 @@
               class="contact-line mb-1"
             >
               <div class="contact-line-icon">
-                <v-icon color="black">{{ line.icon }}</v-icon>
+                <v-icon :color="resume_text_color">{{ line.icon }}</v-icon>
               </div>
               <div v-html="line.body"></div>
             </div>
@@ -89,7 +94,14 @@ export default {
       "resume_title",
       "resume_objective",
       "resume_contact",
+      "resume_primary_color",
+      "resume_text_color",
+      "resume_header_text_color",
     ]),
+  },
+
+  mounted() {
+    console.log(this.resume_primary_color)
   }
 
 }

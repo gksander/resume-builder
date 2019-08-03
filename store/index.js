@@ -19,7 +19,12 @@ export const state = () => ({
   resume_experience: [
     { title: "...", dateRange: "...", description: "..." },
   ],
-  resume_tools: []
+  resume_tools: [],
+
+  // Resume styling
+  resume_primary_color: "#ff0000",
+  resume_text_color: "#000000",
+  resume_header_text_color: "#ffffff",
 })
 
 

@@ -50,7 +50,8 @@
             </v-tab-item>
             <!-- Style -->
             <v-tab-item value="tab-style">
-              STYLES
+              <!-- Colors -->
+              <builder-colors class="mb-4"></builder-colors>
             </v-tab-item>
           </v-tabs-items>
         </div>
@@ -102,6 +103,7 @@ import getVuexBinder from '~/assets/js/vuexComputedBinder'
 import ResumeBasic from '~/components/resumes/ResumeBasic.vue';
 import BuilderIntro from '~/components/builder/BuilderIntro.vue';
 import BuilderContact from '~/components/builder/BuilderContact.vue';
+import BuilderColors from '~/components/builder/BuilderColors.vue';
 import { setInterval, setTimeout, clearTimeout, clearInterval } from 'timers';
 
 // Export component
@@ -115,6 +117,7 @@ export default {
     // Builder components
     BuilderIntro,
     BuilderContact,
+    BuilderColors,
 
     // Resume types
     ResumeBasic,
