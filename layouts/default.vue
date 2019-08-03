@@ -24,6 +24,14 @@
       </v-btn>
       <v-spacer></v-spacer>
       <v-btn
+        icon
+        @click="exportResume"
+        v-if="isMenuButtonVisible"
+      >
+        <v-icon>fas fa-print</v-icon>
+      </v-btn>
+      <v-spacer></v-spacer>
+      <v-btn
         to="/build"
         icon class="mx-1"
       >
@@ -56,6 +64,16 @@ export default {
         this.$store.commit('SET_VALUE', {key: 'sidenav', value: val});
       }
     },
+  },
+
+  /**
+   * Methods
+   */
+  methods: {
+    exportResume () {
+      const exportLink = `${window.location.origin}/export`;
+      window.open(exportLink, '_blank');
+    }
   }
 
 }
