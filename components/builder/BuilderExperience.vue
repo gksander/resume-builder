@@ -1,7 +1,7 @@
 <template>
   <div>
     <template
-      v-for="(line, i) in resume_education"
+      v-for="(line, i) in resume_experience"
     >
       <!-- Title -->
       <v-text-field
@@ -13,14 +13,15 @@
         append-icon="fas fa-trash"
         @click:append="deleteLine(i)"
       ></v-text-field>
-      <!-- Date range -->
-      <v-text-field
+      <!-- Date -->
+      <v-textarea
         :key="`date-${i}`"
         filled label="Date"
         hide-details class="mb-3"
         :value="line.date"
         @input="updateLine(i, 'date', $event)"
-      ></v-text-field>
+        :rows="1" auto-grow
+      ></v-textarea>
       <!-- Description -->
       <v-textarea
         :key="`description-${i}`"
@@ -59,7 +60,7 @@ export default {
    * Computed
    */
   computed: {
-    resume_education: getVuexBinder("resume_education"),
+    resume_experience: getVuexBinder("resume_experience"),
   },
 
   /**
@@ -69,21 +70,21 @@ export default {
     // Update a line
     updateLine(i, prop, val) {
       const line = {
-        ...this.resume_education[i],
+        ...this.resume_experience[i],
         [prop]: val
       };
 
-      this.$store.commit('SET_EDUCATION_LINE', { i, line });
+      this.$store.commit('SET_EXPERIENCE_LINE', { i, line });
     },
 
     // Add a line
     addLine() {
-      this.$store.commit('ADD_EDUCATION_LINE');
+      this.$store.commit('ADD_EXPERIENCE_LINE');
     },
 
     // Delete a line
     deleteLine(i) {
-      this.$store.commit('DELETE_EDUCATION_LINE', i);
+      this.$store.commit('DELETE_EXPERIENCE_LINE', i);
     },
 
   }, // End methods

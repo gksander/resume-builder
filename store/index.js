@@ -84,5 +84,27 @@ export const mutations = {
   DELETE_EDUCATION_LINE (state, i) {
     state.resume_education.splice(i, 1);
   },
+
+  // Update a experience line
+  SET_EXPERIENCE_LINE (state, { i, line }) {
+    state.resume_experience.splice(i, 1, line);
+  },
+
+  // Add a experience line
+  ADD_EXPERIENCE_LINE (state) {
+    state.resume_experience.push({ title: "Job title", date: "...", description: "..." });
+  },
+
+  // Delete a experience line
+  DELETE_EXPERIENCE_LINE (state, i) {
+    state.resume_experience.splice(i, 1);
+  },
   
+  // Set resume data (from import)
+  SET_RESUME_DATA (state, data) {
+    // Loop through state keys, and set data if we find it
+    for (let key in state) {
+      if (data[key] !== undefined) state[key] = data[key];
+    }
+  },
 }

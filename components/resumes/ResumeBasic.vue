@@ -30,14 +30,17 @@
     <v-container class="pa-8" grid-list-lg>
       <v-layout row>
         <!-- Left column -->
-        <v-flex xs8>
+        <v-flex xs8 class="pr-8">
           <!-- Objective -->
           <div class="mb-3">
             <div
               class="section-header"
+              :style="{
+                color: resume_primary_color
+              }"
             >Objective</div>
             <div
-              v-html="resume_objective.replace(/\n/g, '<br />')"
+              v-html="marked(resume_objective)"
             ></div>
           </div>
 
@@ -45,7 +48,26 @@
           <div>
             <div
               class="section-header"
+              :style="{
+                color: resume_primary_color
+              }"
             >Experience</div>
+            <div
+              v-for="(line, i) in resume_experience" :key="`edline-${i}`"
+              :class="[
+                i!=resume_experience.length-1 ? 'mb-2' : ''
+              ]"
+            >
+              <div
+                class="d-flex flex-row justify-space-between"
+              >
+                <div class="font-weight-bold" v-html="marked(line.title)"></div>
+                <div class="flex-grow-0" v-html="marked(line.date)"></div>
+              </div>
+              <div
+                v-html="marked(line.description)"
+              ></div>
+            </div>
           </div>
 
 
@@ -56,6 +78,9 @@
           <div class="mb-3">
             <div
               class="section-header"
+              :style="{
+                color: resume_primary_color
+              }"
             >Contact</div>
             <div
               v-for="(line, i) in resume_contact" :key="`contact-line-${i}`"
@@ -75,6 +100,9 @@
           <div class="mb-3">
             <div
               class="section-header"
+              :style="{
+                color: resume_primary_color
+              }"
             >Tools</div>
             <div
               v-for="(line, i) in resume_tools" :key="`contact-line-${i}`"
@@ -94,6 +122,9 @@
           <div class="mb-3">
             <div
               class="section-header"
+              :style="{
+                color: resume_primary_color
+              }"
             >Education</div>
             <div
               v-for="(line, i) in resume_education" :key="`edline-${i}`"
@@ -104,14 +135,11 @@
               <div class="d-flex flex-row justify-space-between">
                 <div
                   class="flex flex-grow-1 pa-0 font-weight-bold"
-                  :style="{
-                    color: resume_primary_color
-                  }"
                 >{{ line.title }}</div>
                 <div class="flex pa-0 flex-grow-0">{{ line.date }}</div>
               </div>
               <div
-                v-html="marked(line.description.replace(/\n/g, '<br/>'))"
+                v-html="marked(line.description)"
               ></div>
             </div>
           </div>
@@ -125,6 +153,10 @@
 <script>
 import { mapState } from 'vuex';
 import marked from 'marked';
+marked.setOptions({
+  gfm: true,
+  breaks: true
+})
 
 export default {
   name: "ResumeBasic",
@@ -137,6 +169,7 @@ export default {
       "resume_contact",
       "resume_tools",
       "resume_education",
+      "resume_experience",
       "resume_primary_color",
       "resume_text_color",
       "resume_header_text_color",
@@ -180,4 +213,5 @@ export default {
     padding-left: 6pt;
   }
 }
+
 </style>
