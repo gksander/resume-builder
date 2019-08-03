@@ -35,15 +35,43 @@
       width="350"
       v-model="sidenav"
     >
-      <v-container>
-        <!-- About you -->
-        <builder-intro class="mb-4"></builder-intro>
-        <!-- Contact -->
-        <builder-contact class="mb-4"></builder-contact>
+      <div
+        class="fill-height d-flex flex-column"
+      >
+        <!-- Body... -->
+        <div class="flex-grow-1 pa-3 overflow-auto">
+          <v-tabs-items v-model="activeTab">
+            <!-- Data -->
+            <v-tab-item value="tab-data">
+              <!-- About you -->
+              <builder-intro class="mb-4"></builder-intro>
+              <!-- Contact -->
+              <builder-contact class="mb-4"></builder-contact>
+            </v-tab-item>
+            <!-- Style -->
+            <v-tab-item value="tab-style">
+              STYLES
+            </v-tab-item>
+          </v-tabs-items>
+        </div>
+        <!-- Tabs -->
+        <v-divider></v-divider>
+        <div class="flex-grow-0">
+          <v-tabs
+            grow show-arrows
+            v-model="activeTab"
+          >
+            <v-tab
+              v-for="tab in tabs" :key="`${tab.id}`"
+              :href="`#${tab.id}`"
+            >
+              {{ tab.title }}
+            </v-tab>
+          </v-tabs>
+        </div>
+      </div>
 
-
-
-      </v-container>
+      
     </v-navigation-drawer>
 
 
@@ -100,6 +128,11 @@ export default {
     scaleFactor: 1,
     mountInterval: null,
     mountIntervalRunCount: 0,
+    tabs: [
+      {id: "tab-data", title: "Data"},
+      {id: "tab-style", title: "Styles"},
+    ],
+    activeTab: "tab-data"
   }),
 
   /**
@@ -168,3 +201,9 @@ export default {
 
 }
 </script>
+
+<style lang="scss">
+.v-tabs--fixed-tabs .v-tab {
+  width: auto;
+}
+</style>

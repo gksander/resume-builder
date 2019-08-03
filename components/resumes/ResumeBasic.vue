@@ -27,35 +27,48 @@
         <!-- Left column -->
         <v-flex xs8>
           <!-- Objective -->
-          <div
-            class="section-header"
-          >Objective</div>
-          <div
-            v-html="resume_objective.replace(/\n/g, '<br />')"
-            class="mb-3"
-          ></div>
+          <div class="mb-3">
+            <div
+              class="section-header"
+            >Objective</div>
+            <div
+              v-html="resume_objective.replace(/\n/g, '<br />')"
+            ></div>
+          </div>
 
           <!-- Experience -->
-          <div
-            class="section-header"
-          >Experience</div>
+          <div>
+            <div
+              class="section-header"
+            >Experience</div>
+          </div>
 
 
         </v-flex> <!-- End left column -->
         <!-- Right column -->
         <v-flex xs4>
           <!-- Contact -->
-          <div
-            class="section-header"
-          >Contact</div>
-          <div
-            v-for="(line, i) in resume_contact" :key="`contact-line-${i}`"
-            class="contact-line mb-1"
-          >
-            <div class="contact-line-icon">
-              <v-icon color="black">{{ line.icon }}</v-icon>
+          <div class="mb-3">
+            <div
+              class="section-header"
+            >Contact</div>
+            <div
+              v-for="(line, i) in resume_contact" :key="`contact-line-${i}`"
+              class="contact-line mb-1"
+            >
+              <div class="contact-line-icon">
+                <v-icon color="black">{{ line.icon }}</v-icon>
+              </div>
+              <div v-html="line.body"></div>
             </div>
-            <div v-html="line.body"></div>
+          </div>
+
+          <!-- Education -->
+          <div class="mb-3">
+            <div
+              class="section-header"
+            >Education</div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores sequi qui, voluptatem reiciendis, obcaecati suscipit labore hic rem sit voluptatum commodi itaque earum temporibus architecto repellat explicabo animi in sint.</p>
           </div>
 
         </v-flex>
