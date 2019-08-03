@@ -50,6 +50,8 @@ const icons = [
   'fab fa-wordpress-simple',
   'fab fa-python',
   'fas fa-database',
+  'fab fa-git',
+  'fab fa-git-square',
   'fab fa-linux',
   'fab fa-ubuntu',
   'fab fa-suse',

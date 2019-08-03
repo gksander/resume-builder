@@ -14,10 +14,10 @@ export const state = () => ({
     { icon: 'fas fa-phone', body: "(555) 555-5555" },
   ],
   resume_education: [
-    { title: "B.S. Mathematics", dateRange: "Aug. 2011 - May 2014", description: "..." }
+    { title: "Degree", date: "Date", description: "..." }
   ],
   resume_experience: [
-    { title: "...", dateRange: "...", description: "..." },
+    { title: "...", date: "...", description: "..." },
   ],
   resume_tools: [
     { icon: 'fas fa-laptop-code', body: "HTML5" },
@@ -68,6 +68,21 @@ export const mutations = {
   // Delete a contact line
   DELETE_TOOL_LINE (state, i) {
     state.resume_tools.splice(i, 1);
+  },
+
+  // Update a education line
+  SET_EDUCATION_LINE (state, { i, line }) {
+    state.resume_education.splice(i, 1, line);
+  },
+
+  // Add a education line
+  ADD_EDUCATION_LINE (state) {
+    state.resume_education.push({ title: "Degree", date: "...", description: "..." });
+  },
+
+  // Delete a education line
+  DELETE_EDUCATION_LINE (state, i) {
+    state.resume_education.splice(i, 1);
   },
   
 }

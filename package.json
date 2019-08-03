@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@nuxtjs/pwa": "^2.6.0",
+    "marked": "^0.7.0",
     "nuxt": "^2.0.0",
     "vuex-persist": "^2.0.1"
   },

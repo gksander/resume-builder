@@ -95,7 +95,25 @@
             <div
               class="section-header"
             >Education</div>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores sequi qui, voluptatem reiciendis, obcaecati suscipit labore hic rem sit voluptatum commodi itaque earum temporibus architecto repellat explicabo animi in sint.</p>
+            <div
+              v-for="(line, i) in resume_education" :key="`edline-${i}`"
+              :class="[
+                i!=resume_education.length-1 ? 'mb-2' : ''
+              ]"
+            >
+              <div class="d-flex flex-row justify-space-between">
+                <div
+                  class="flex flex-grow-1 pa-0 font-weight-bold"
+                  :style="{
+                    color: resume_primary_color
+                  }"
+                >{{ line.title }}</div>
+                <div class="flex pa-0 flex-grow-0">{{ line.date }}</div>
+              </div>
+              <div
+                v-html="marked(line.description.replace(/\n/g, '<br/>'))"
+              ></div>
+            </div>
           </div>
 
         </v-flex>
@@ -106,6 +124,7 @@
 
 <script>
 import { mapState } from 'vuex';
+import marked from 'marked';
 
 export default {
   name: "ResumeBasic",
@@ -117,10 +136,15 @@ export default {
       "resume_objective",
       "resume_contact",
       "resume_tools",
+      "resume_education",
       "resume_primary_color",
       "resume_text_color",
       "resume_header_text_color",
     ]),
+  },
+
+  methods: {
+    marked,
   },
 
 }

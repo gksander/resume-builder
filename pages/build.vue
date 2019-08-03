@@ -67,6 +67,13 @@
                     <builder-tools></builder-tools>
                   </v-expansion-panel-content>
                 </v-expansion-panel>
+                <!-- Education -->
+                <v-expansion-panel>
+                  <v-expansion-panel-header>Education</v-expansion-panel-header>
+                  <v-expansion-panel-content>
+                    <builder-education></builder-education>
+                  </v-expansion-panel-content>
+                </v-expansion-panel>
               </v-expansion-panels>
             </v-tab-item>
             <!-- Style -->
@@ -161,6 +168,7 @@ import ResumeBasic from '~/components/resumes/ResumeBasic.vue';
 import BuilderIntro from '~/components/builder/BuilderIntro.vue';
 import BuilderContact from '~/components/builder/BuilderContact.vue';
 import BuilderTools from '~/components/builder/BuilderTools.vue';
+import BuilderEducation from '~/components/builder/BuilderEducation.vue';
 import { setInterval, setTimeout, clearTimeout, clearInterval } from 'timers';
 
 // Export component
@@ -175,6 +183,7 @@ export default {
     BuilderIntro,
     BuilderContact,
     BuilderTools,
+    BuilderEducation,
 
     // Resume types
     ResumeBasic,
