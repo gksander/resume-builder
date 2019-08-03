@@ -27,7 +27,7 @@
     </div>
 
     <!-- Body -->
-    <v-container class="pa-6" grid-list-lg>
+    <v-container class="pa-8" grid-list-lg>
       <v-layout row>
         <!-- Left column -->
         <v-flex xs8>
