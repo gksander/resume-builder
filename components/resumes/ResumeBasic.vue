@@ -100,16 +100,16 @@
             </div>
           </div>
 
-          <!-- Tools -->
+          <!-- Skills -->
           <div class="mb-3">
             <div
               class="section-header"
               :style="{
                 color: resume_primary_color
               }"
-            >Tools</div>
+            >Skills</div>
             <div
-              v-for="(line, i) in resume_tools" :key="`contact-line-${i}`"
+              v-for="(line, i) in resume_skills" :key="`contact-line-${i}`"
               class="contact-line mb-1"
             >
               <div class="contact-line-icon">
@@ -171,7 +171,7 @@ export default {
       "resume_title",
       "resume_objective",
       "resume_contact",
-      "resume_tools",
+      "resume_skills",
       "resume_education",
       "resume_experience",
       "resume_primary_color",

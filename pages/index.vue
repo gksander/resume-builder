@@ -75,7 +75,7 @@
                 <v-expansion-panel>
                   <v-expansion-panel-header class="subtitle-1 font-weight-bold">Tools</v-expansion-panel-header>
                   <v-expansion-panel-content>
-                    <builder-tools></builder-tools>
+                    <builder-skills></builder-skills>
                   </v-expansion-panel-content>
                 </v-expansion-panel>
                 <!-- Education -->
@@ -197,7 +197,7 @@ import { setInterval, setTimeout, clearTimeout, clearInterval } from 'timers';
 import BuilderInfo from '~/components/builder/BuilderInfo.vue';
 import BuilderIntro from '~/components/builder/BuilderIntro.vue';
 import BuilderContact from '~/components/builder/BuilderContact.vue';
-import BuilderTools from '~/components/builder/BuilderTools.vue';
+import BuilderSkills from '~/components/builder/BuilderSkills.vue';
 import BuilderEducation from '~/components/builder/BuilderEducation.vue';
 import BuilderExperience from '~/components/builder/BuilderExperience.vue';
 
@@ -217,7 +217,7 @@ export default {
     BuilderInfo,
     BuilderIntro,
     BuilderContact,
-    BuilderTools,
+    BuilderSkills,
     BuilderEducation,
     BuilderExperience,
     ResumeSelected

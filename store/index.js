@@ -20,7 +20,7 @@ export const state = () => ({
   resume_experience: [
     { title: "Super Important Job", date: "June 1993 - Current", description: "Job description here.\n* Achievement 1\n* Achievement 2" },
   ],
-  resume_tools: [
+  resume_skills: [
     { icon: 'fab fa-html5', body: "HTML5" },
   ],
 
@@ -58,18 +58,18 @@ export const mutations = {
   },
 
   // Update a contact line
-  SET_TOOL_LINE (state, { i, line }) {
-    state.resume_tools.splice(i, 1, line);
+  SET_SKILL_LINE (state, { i, line }) {
+    state.resume_skills.splice(i, 1, line);
   },
 
   // Add a contact line
-  ADD_TOOL_LINE (state) {
-    state.resume_tools.push({ icon: 'fas fa-laptop-code', body: "HTML5" });
+  ADD_SKILL_LINE (state) {
+    state.resume_skills.push({ icon: 'fas fa-laptop-code', body: "HTML5" });
   },
 
   // Delete a contact line
-  DELETE_TOOL_LINE (state, i) {
-    state.resume_tools.splice(i, 1);
+  DELETE_SKILL_LINE (state, i) {
+    state.resume_skills.splice(i, 1);
   },
 
   // Update a education line

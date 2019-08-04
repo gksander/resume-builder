@@ -67,6 +67,11 @@ const icons = [
   'fas fa-file-word',
   'fas fa-file-powerpoint',
 
+  // Miscellaneous
+  'fas fa-square-root-alt',
+  'fas fa-users',
+  'fas fa-user-friends',
+
 
 ];
 
