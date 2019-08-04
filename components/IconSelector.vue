@@ -12,7 +12,11 @@
         ></v-text-field>
       </v-card-title>
       <v-divider></v-divider>
-      <v-container grid-list-md fluid class="pa-3" style="height: 50vh">
+      <v-container
+        grid-list-md fluid class="pa-3"
+        v-if="filteredIcons.length > 0"
+        style="max-height: 50vh; overflow: auto;"
+      >
         <v-layout row wrap>
           <v-flex
             v-for="icon in filteredIcons" :key="`icon-${icon}`"
@@ -27,6 +31,9 @@
           </v-flex>
         </v-layout>
       </v-container>
+      <v-card-text v-else>
+        Use the text box above to search for icons.
+      </v-card-text>
     </v-card>
   </v-dialog>
 </template>
