@@ -34,9 +34,10 @@ export const state = () => ({
 
   // Resume styling
   resume_style: ResumeList[0].id,
-  resume_primary_color: "rgb(88,69,226)",
-  resume_text_color: "rgb(0,0,0)",
-  resume_header_text_color: "rgb(255,255,255)",
+  resume_icon: "fas fa-code",
+  resume_primary_color: "#1D34CC",
+  resume_text_color: "#000000",
+  resume_header_text_color: "#ffffff",
 })
 
 

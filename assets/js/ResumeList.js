@@ -3,7 +3,7 @@
  */
 const ResumeList = [
   { id: "standard", title: "Standard", component: "ResumeBasic" },
-  { id: "clean", title: "Clean", component: "ResumeClean" },
+  { id: "sidebar", title: "Sidebar", component: "ResumeSidebar" },
 ];
 
 export default ResumeList;

@@ -21,44 +21,27 @@
     >Add new</v-btn>
 
     <!-- Dialog for selecting icon -->
-    <v-dialog
+    <icon-selector
+      @select="selectIcon($event)"
       v-model="iconSelectorVisible"
-      width="400"
-    >
-      <v-card>
-        <v-card-title>Select Icon</v-card-title>
-        <v-divider></v-divider>
-        <v-container grid-list-md class="pa-3">
-          <v-layout row wrap>
-            <v-flex
-              v-for="icon in icons" :key="`icon-${icon}`"
-              xs3 sm2
-            >
-              <v-btn
-                icon
-                @click="selectIcon(icon)"
-              >
-                <v-icon>{{ icon }}</v-icon>
-              </v-btn>
-            </v-flex>
-          </v-layout>
-        </v-container>
-      </v-card>
-    </v-dialog>
+    ></icon-selector>
   </div>
 </template>
 
 <script>
 import getVuexBinder from '~/assets/js/vuexComputedBinder';
-import icons from '~/assets/config/icons';
+import IconSelector from '~/components/IconSelector'
 
 export default {
   name: "BuilderContact",
 
+  components: {
+    IconSelector
+  },
+
   data: () => ({
     iconSelectorVisible: false,
     activeContactLineIndex: -1,
-    icons,
   }),
 
   /**

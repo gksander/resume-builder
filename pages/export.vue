@@ -1,19 +1,19 @@
 <template>
   <div>
-    <resume-basic></resume-basic>
+    <resume-selected></resume-selected>
   </div>
 </template>
 
 <script>
 
-import ResumeBasic from "~/components/resumes/ResumeBasic";
+import ResumeSelected from "~/components/resumes/ResumeSelected";
 
 export default {
   name: "ExportPage",
   layout: "plain",
 
   components: {
-    ResumeBasic,
+    ResumeSelected,
   },
 
   mounted() {

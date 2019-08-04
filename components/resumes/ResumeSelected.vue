@@ -8,7 +8,7 @@ import ResumeList from '~/assets/js/ResumeList'
 
 // Resumes
 import ResumeBasic from '~/components/resumes/ResumeBasic.vue';
-import ResumeClean from '~/components/resumes/ResumeClean.vue';
+import ResumeSidebar from '~/components/resumes/ResumeSidebar.vue';
 
 export default {
   name: "ResumeSelected",
@@ -18,7 +18,7 @@ export default {
    */
   components: {
     ResumeBasic,
-    ResumeClean,
+    ResumeSidebar,
   },
 
   /**

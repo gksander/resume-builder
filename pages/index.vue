@@ -71,9 +71,9 @@
                     <builder-contact></builder-contact>
                   </v-expansion-panel-content>
                 </v-expansion-panel>
-                <!-- Tools -->
+                <!-- Skills -->
                 <v-expansion-panel>
-                  <v-expansion-panel-header class="subtitle-1 font-weight-bold">Tools</v-expansion-panel-header>
+                  <v-expansion-panel-header class="subtitle-1 font-weight-bold">Skills</v-expansion-panel-header>
                   <v-expansion-panel-content>
                     <builder-skills></builder-skills>
                   </v-expansion-panel-content>
@@ -115,7 +115,7 @@
                   <v-expansion-panel-header class="subtitle-1 font-weight-bold">Primary Color</v-expansion-panel-header>
                   <v-expansion-panel-content>
                     <v-color-picker
-                      mode="rgba"
+                      mode="hexa"
                       hide-mode-switch
                       v-model="resume_primary_color"
                     ></v-color-picker>
@@ -126,7 +126,7 @@
                   <v-expansion-panel-header class="subtitle-1 font-weight-bold">Header Text Color</v-expansion-panel-header>
                   <v-expansion-panel-content>
                     <v-color-picker
-                      mode="rgba"
+                      mode="hexa"
                       hide-mode-switch
                       v-model="resume_header_text_color"
                     ></v-color-picker>
@@ -137,7 +137,7 @@
                   <v-expansion-panel-header class="subtitle-1 font-weight-bold">Text Color</v-expansion-panel-header>
                   <v-expansion-panel-content>
                     <v-color-picker
-                      mode="rgba"
+                      mode="hexa"
                       hide-mode-switch
                       v-model="resume_text_color"
                     ></v-color-picker>
