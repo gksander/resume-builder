@@ -7,7 +7,7 @@
     >
       <v-responsive
         :aspect-ratio="8.5/11"
-        class="blue"
+        class="elevation-10"
         ref="resumeContainer"
       >
         <div
@@ -23,6 +23,7 @@
               transform: `scale(${scaleFactor})`,
               transformOrigin: `left top`,
             }"
+            class="elevation-8"
           >
             <resume-selected></resume-selected>
           </div>
@@ -115,6 +116,8 @@
                   <v-expansion-panel-header class="subtitle-1 font-weight-bold">Primary Color</v-expansion-panel-header>
                   <v-expansion-panel-content>
                     <v-color-picker
+                      width="250"
+                      class="mx-auto"
                       mode="hexa"
                       hide-mode-switch
                       v-model="resume_primary_color"
@@ -126,6 +129,8 @@
                   <v-expansion-panel-header class="subtitle-1 font-weight-bold">Header Text Color</v-expansion-panel-header>
                   <v-expansion-panel-content>
                     <v-color-picker
+                      width="250"
+                      class="mx-auto"
                       mode="hexa"
                       hide-mode-switch
                       v-model="resume_header_text_color"
@@ -137,6 +142,8 @@
                   <v-expansion-panel-header class="subtitle-1 font-weight-bold">Text Color</v-expansion-panel-header>
                   <v-expansion-panel-content>
                     <v-color-picker
+                      width="250"
+                      class="mx-auto"
                       mode="hexa"
                       hide-mode-switch
                       v-model="resume_text_color"

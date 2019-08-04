@@ -21,6 +21,7 @@
         <div class="header mb-4">
           <v-icon
             size="84"
+            :color="resume_header_text_color"
             @click="iconSelectorVisible = true;"
           >{{ resume_icon }}</v-icon>
         </div>
@@ -39,7 +40,7 @@
             class="contact-line mb-1"
           >
             <div class="contact-line-icon">
-              <v-icon>{{ line.icon }}</v-icon>
+              <v-icon :color="resume_header_text_color">{{ line.icon }}</v-icon>
             </div>
             <div
               v-html="line.body"
@@ -56,7 +57,7 @@
             class="contact-line mb-1"
           >
             <div class="contact-line-icon">
-              <v-icon>{{ line.icon }}</v-icon>
+              <v-icon :color="resume_header_text_color">{{ line.icon }}</v-icon>
             </div>
             <div
               v-html="line.body"

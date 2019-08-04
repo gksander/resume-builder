@@ -1,80 +1,4 @@
 const icons = [
-  // Contact
-  'fas fa-phone',
-  'fas fa-at',
-  'fas fa-envelope',
-  'fas fa-inbox',
-  'fas fa-paper-plane',
-  'fas fa-reply',
-  'fas fa-map-signs',
-  'fas fa-map-pin',
-  'fas fa-map-marker-alt',
-  'fas fa-map-marked-alt',
-  'fas fa-street-view',
-  'fas fa-globe-americas',
-  'fas fa-address-card',
-
-  // Social
-  'fab fa-dev',
-  'fab fa-twitter',
-  'fab fa-twitter-square',
-  'fab fa-github',
-  'fab fa-github-square',
-  'fab fa-github-alt',
-  'fab fa-facebook',
-  'fab fa-facebook-f',
-  'fab fa-facebook-square',
-  'fab fa-facebook-messenger',
-  'fab fa-linkedin',
-  'fab fa-linkedin-in',
-  'fas fa-laptop-code',
-
-  // Code
-  'fas fa-code',
-  'fas fa-file-code',
-  'fab fa-html5',
-  'fab fa-css3',
-  'fab fa-css3-alt',
-  'fab fa-sass',
-  'fab fa-less',
-  // 'fab fa-bootstrap',
-  'fab fa-js',
-  'fab fa-vuejs',
-  'fab fa-react',
-  'fab fa-angular',
-  'fab fa-ember',
-  'fab fa-node',
-  'fab fa-node-js',
-  'fab fa-php',
-  'fab fa-wordpress',
-  'fab fa-wordpress-simple',
-  'fab fa-python',
-  'fas fa-database',
-  'fab fa-git',
-  'fab fa-git-square',
-  'fab fa-linux',
-  'fab fa-ubuntu',
-  'fab fa-suse',
-  'fab fa-redhat',
-  'fab fa-fedora',
-  'fab fa-centos',
-  'fab fa-apple',
-  'fab fa-windows',
-  'fab fa-aws',
-  'fab fa-digital-ocean',
-  'fab fa-google',
-  'fas fa-file-excel',
-  'fas fa-file-word',
-  'fas fa-file-powerpoint',
-
-  // Miscellaneous
-  'fas fa-square-root-alt',
-  'fas fa-users',
-  'fas fa-user-friends',
-
-];
-
-const icons2 = [
   "fab fa-500px",
     "fab fa-accessible-icon",
     "fab fa-accusoft",
@@ -861,4 +785,4 @@ const icons2 = [
     "fab fa-youtube"
 ]
 
-export default icons2;
+export default icons;
