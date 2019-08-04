@@ -9,8 +9,13 @@
     <div
       class="header"
       :style="{
+        backgroundImage: `url('/img/rain-drops.jpg')`,
+        backgroundSize: '100%',
+        backgroundPositionY: '50%',
         backgroundColor: resume_primary_color,
-        color: resume_header_text_color
+        backgroundBlendMode: 'multiply',
+        color: resume_header_text_color,
+        textShadow: '1px 1px 5px black'
       }"
     >
       <div
@@ -156,7 +161,7 @@ import marked from 'marked';
 marked.setOptions({
   gfm: true,
   breaks: true
-})
+});
 
 export default {
   name: "ResumeBasic",

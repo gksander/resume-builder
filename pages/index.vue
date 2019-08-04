@@ -10,7 +10,6 @@
         class="blue"
         ref="resumeContainer"
       >
-        <!-- <resume-basic></resume-basic> -->
         <div
           class="grey"
           :style="{
@@ -25,7 +24,7 @@
               transformOrigin: `left top`,
             }"
           >
-            <resume-basic></resume-basic>
+            <resume-selected></resume-selected>
           </div>
         </div>
       </v-responsive>
@@ -41,45 +40,54 @@
       <div
         class="fill-height d-flex flex-column"
       >
-        <!-- Body... -->
+        <!-- Header -->
+        <div class="flex-grow-0 pa-3 font-weight-bold text-center title">
+          {{ sidenavTitle }}
+        </div>
+        <v-divider></v-divider>
+
+        <!-- Body -->
         <div class="flex-grow-1 pa-3 overflow-auto">
 
           <v-tabs-items v-model="activeTab">
+            <!-- Info -->
+            <v-tab-item value="tab-info">
+              <builder-info></builder-info>
+            </v-tab-item>
             <!-- Data -->
             <v-tab-item value="tab-data">
-              <div class="headline mb-3">Resume Data</div>
-              <v-expansion-panels>
+              <v-expansion-panels popout>
                 <!-- Intro -->
                 <v-expansion-panel>
-                  <v-expansion-panel-header>Intro</v-expansion-panel-header>
+                  <v-expansion-panel-header class="subtitle-1 font-weight-bold">Intro</v-expansion-panel-header>
                   <v-expansion-panel-content>
                     <builder-intro></builder-intro>
                   </v-expansion-panel-content>
                 </v-expansion-panel>
                 <!-- Contact -->
                 <v-expansion-panel>
-                  <v-expansion-panel-header>Contact</v-expansion-panel-header>
+                  <v-expansion-panel-header class="subtitle-1 font-weight-bold">Contact</v-expansion-panel-header>
                   <v-expansion-panel-content>
                     <builder-contact></builder-contact>
                   </v-expansion-panel-content>
                 </v-expansion-panel>
                 <!-- Tools -->
                 <v-expansion-panel>
-                  <v-expansion-panel-header>Tools</v-expansion-panel-header>
+                  <v-expansion-panel-header class="subtitle-1 font-weight-bold">Tools</v-expansion-panel-header>
                   <v-expansion-panel-content>
                     <builder-tools></builder-tools>
                   </v-expansion-panel-content>
                 </v-expansion-panel>
                 <!-- Education -->
                 <v-expansion-panel>
-                  <v-expansion-panel-header>Education</v-expansion-panel-header>
+                  <v-expansion-panel-header class="subtitle-1 font-weight-bold">Education</v-expansion-panel-header>
                   <v-expansion-panel-content>
                     <builder-education></builder-education>
                   </v-expansion-panel-content>
                 </v-expansion-panel>
                 <!-- Experience -->
                 <v-expansion-panel>
-                  <v-expansion-panel-header>Experience</v-expansion-panel-header>
+                  <v-expansion-panel-header class="subtitle-1 font-weight-bold">Experience</v-expansion-panel-header>
                   <v-expansion-panel-content>
                     <builder-experience></builder-experience>
                   </v-expansion-panel-content>
@@ -88,11 +96,23 @@
             </v-tab-item>
             <!-- Style -->
             <v-tab-item value="tab-style">
-              <div class="headline mb-3">Theming</div>
-              <v-expansion-panels>
+              <v-expansion-panels popout>
+                <!-- Theme -->
+                <v-expansion-panel>
+                  <v-expansion-panel-header class="subtitle-1 font-weight-bold">Resume Style</v-expansion-panel-header>
+                  <v-expansion-panel-content>
+                    <v-btn
+                      v-for="style in ResumeList" :key="style.id"
+                      block outlined
+                      class="mb-3"
+                      :disabled="style.id === resume_style"
+                      @click="resume_style = style.id"
+                    >{{ style.title }}</v-btn>
+                  </v-expansion-panel-content>
+                </v-expansion-panel>
                 <!-- Primary Color -->
                 <v-expansion-panel>
-                  <v-expansion-panel-header>Primary Color</v-expansion-panel-header>
+                  <v-expansion-panel-header class="subtitle-1 font-weight-bold">Primary Color</v-expansion-panel-header>
                   <v-expansion-panel-content>
                     <v-color-picker
                       mode="rgba"
@@ -103,7 +123,7 @@
                 </v-expansion-panel>
                 <!-- Header Text Color -->
                 <v-expansion-panel>
-                  <v-expansion-panel-header>Header Text Color</v-expansion-panel-header>
+                  <v-expansion-panel-header class="subtitle-1 font-weight-bold">Header Text Color</v-expansion-panel-header>
                   <v-expansion-panel-content>
                     <v-color-picker
                       mode="rgba"
@@ -114,7 +134,7 @@
                 </v-expansion-panel>
                 <!-- Text Color -->
                 <v-expansion-panel>
-                  <v-expansion-panel-header>Text Color</v-expansion-panel-header>
+                  <v-expansion-panel-header class="subtitle-1 font-weight-bold">Text Color</v-expansion-panel-header>
                   <v-expansion-panel-content>
                     <v-color-picker
                       mode="rgba"
@@ -140,13 +160,11 @@
               v-for="tab in tabs" :key="`${tab.id}`"
               :href="`#${tab.id}`"
             >
-              {{ tab.title }}
+              <v-icon>{{ tab.icon }}</v-icon>
             </v-tab>
           </v-tabs>
         </div>
       </div>
-
-      
     </v-navigation-drawer>
 
 
@@ -172,15 +190,20 @@
 
 <script>
 import getVuexBinder from '~/assets/js/vuexComputedBinder'
+import ResumeList from '~/assets/js/ResumeList'
+import { setInterval, setTimeout, clearTimeout, clearInterval } from 'timers';
 
 // Import components
-import ResumeBasic from '~/components/resumes/ResumeBasic.vue';
+import BuilderInfo from '~/components/builder/BuilderInfo.vue';
 import BuilderIntro from '~/components/builder/BuilderIntro.vue';
 import BuilderContact from '~/components/builder/BuilderContact.vue';
 import BuilderTools from '~/components/builder/BuilderTools.vue';
 import BuilderEducation from '~/components/builder/BuilderEducation.vue';
 import BuilderExperience from '~/components/builder/BuilderExperience.vue';
-import { setInterval, setTimeout, clearTimeout, clearInterval } from 'timers';
+
+// Resumes
+import ResumeSelected from '~/components/resumes/ResumeSelected.vue';
+
 
 // Export component
 export default {
@@ -191,14 +214,13 @@ export default {
    */
   components: {
     // Builder components
+    BuilderInfo,
     BuilderIntro,
     BuilderContact,
     BuilderTools,
     BuilderEducation,
     BuilderExperience,
-
-    // Resume types
-    ResumeBasic,
+    ResumeSelected
   },
 
   /**
@@ -210,10 +232,12 @@ export default {
     mountInterval: null,
     mountIntervalRunCount: 0,
     tabs: [
-      {id: "tab-data", title: "Data"},
-      {id: "tab-style", title: "Styles"},
+      {id: "tab-info", title: "Info", icon: "fas fa-info"},
+      {id: "tab-data", title: "Data", icon: "fas fa-edit"},
+      {id: "tab-style", title: "Styles", icon: "fas fa-paint-brush"},
     ],
-    activeTab: "tab-data"
+    activeTab: "tab-info",
+    ResumeList,
   }),
 
   /**
@@ -227,7 +251,16 @@ export default {
     resume_primary_color: getVuexBinder("resume_primary_color"),
     resume_header_text_color: getVuexBinder("resume_header_text_color"),
     resume_text_color: getVuexBinder("resume_text_color"),
+    resume_style: getVuexBinder("resume_style"),
 
+    // Title
+    sidenavTitle() {
+      switch (this.activeTab) {
+        case "tab-info": return "Information";
+        case "tab-data": return "Resume Data";
+        case "tab-style": return "Style";
+      }
+    },
   },
 
   /**

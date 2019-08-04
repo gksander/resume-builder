@@ -1,3 +1,4 @@
+import ResumeList from "~/assets/js/ResumeList";
 
 /**
  * App state
@@ -24,7 +25,8 @@ export const state = () => ({
   ],
 
   // Resume styling
-  resume_primary_color: "rgb(7,107,45)",
+  resume_style: ResumeList[0].id,
+  resume_primary_color: "rgb(88,69,226)",
   resume_text_color: "rgb(0,0,0)",
   resume_header_text_color: "rgb(255,255,255)",
 })
