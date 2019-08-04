@@ -299,7 +299,7 @@ export default {
     this.mountInterval = setInterval(() => {
       this.computeScaleFactor();
       this.mountIntervalRunCount++;
-      if (this.mountIntervalRunCount > 10) {
+      if (this.mountIntervalRunCount > 20) {
         clearInterval(this.mountInterval);
       }
     }, 250);

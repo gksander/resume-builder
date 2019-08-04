@@ -10,18 +10,26 @@ export const state = () => ({
   // Resume values
   resume_name: "Jane Doe",
   resume_title: "Web Developer",
-  resume_objective: "This is an __objective__ statement with Markdown.",
+  resume_objective: "This is an __objective__ statement with Markdown.\n* Point 1\n* Point 2\n\nLorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga necessitatibus veritatis nihil eveniet nulla, blanditiis quisquam repellendus! Perspiciatis expedita minus, provident dolor porro ad, tenetur perferendis quidem, ea quia sapiente.",
   resume_contact: [
     { icon: 'fas fa-phone', body: "(555) 555-5555" },
+    { icon: 'fas fa-at', body: "janedoe@fake.com" },
+    { icon: 'fas fa-map-marker-alt', body: "Somewhere, USA" },
+    { icon: 'fab fa-twitter', body: "twitter handle" },
   ],
   resume_education: [
-    { title: "Degree", date: "Date", description: "..." }
+    { title: "Degree", date: "May 2019", description: "This is a description about the degree. Also accepts __markdown__." }
   ],
   resume_experience: [
-    { title: "Super Important Job", date: "June 1993 - Current", description: "Job description here.\n* Achievement 1\n* Achievement 2" },
+    { title: "Web Developer", date: "Jan. 2019 - Current", description: "Job description here. Feel free to use Markdown to make lists. \n* Achievement 1\n* Achievement 2" },
+    { title: "Astronaut", date: "May 1993 - Jan. 2019", description: "*NASA - United States of America*\nExplored outer space.\n* Walked on the moon.\n* Circle Mars." },
   ],
   resume_skills: [
     { icon: 'fab fa-html5', body: "HTML5" },
+    { icon: 'fab fa-css3', body: "CSS3" },
+    { icon: 'fab fa-js', body: "JavaScript" },
+    { icon: 'fab fa-node-js', body: "Node.JS" },
+    { icon: 'fab fa-php', body: "PHP" },
   ],
 
   // Resume styling
