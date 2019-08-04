@@ -15,7 +15,6 @@
         backgroundColor: resume_primary_color,
         backgroundBlendMode: 'multiply',
         color: resume_header_text_color,
-        textShadow: '1px 1px 5px black'
       }"
     >
       <div
