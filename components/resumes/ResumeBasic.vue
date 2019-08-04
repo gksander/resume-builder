@@ -65,8 +65,8 @@
               <div
                 class="d-flex flex-row justify-space-between"
               >
-                <div class="font-weight-bold" v-html="marked(line.title)"></div>
-                <div class="flex-grow-0" v-html="marked(line.date)"></div>
+                <div class="font-weight-bold" v-html="line.title"></div>
+                <div class="flex-grow-0" v-html="line.date"></div>
               </div>
               <div
                 v-html="marked(line.description)"
