@@ -60,7 +60,7 @@
             <div
               v-for="(line, i) in resume_experience" :key="`edline-${i}`"
               :class="[
-                i!=resume_experience.length-1 ? 'mb-2' : ''
+                i!=resume_experience.length-1 ? 'mb-4' : ''
               ]"
             >
               <div
